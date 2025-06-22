@@ -20,3 +20,20 @@ def char_count(filepath):
             else:
                 char_map[i] = 1
     return char_map
+
+def sort_on(items):
+    return items["num"]
+
+def final_dict(char_map):
+    char_map_updated = []
+    for key, value in char_map.items():
+        temp = {}
+        temp['char'] = key
+        temp['num'] = value
+        char_map_updated.append(temp)
+    char_map_updated.sort(reverse=True, key=sort_on)
+    return char_map_updated
+
+def print_report(char_list):
+    for item in char_list:
+        print(f"{item['char']}: {item['num']}")
